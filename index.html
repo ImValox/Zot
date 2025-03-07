@@ -1,108 +1,128 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOZ - Le jeu</title>
+    <title>ZOT - Le jeu</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container" id="main-container">
         <button class="settings-btn">⚙️</button>
-        
+
         <div class="logo-container">
             <div class="logo">
-                <span>TOZ</span>
+                <span>ZOT</span>
             </div>
         </div>
-        
+
         <div class="player-section" id="player-section">
             <button class="add-player-btn" id="add-player-btn">
-                Ajoute un joueur
-                <div class="add-icon">+</div>
+                <span class="front">
+                    Ajouter un joueur
+                    <div class="add-icon">+</div>
+                </span>
+            </button>
+
+            <button class="player-btn" id="player-btn">
+                <span class="front">
+                    Joueur 1
+                    <div class="remove-icon">-</div>
+                </span>
             </button>
         </div>
-        
-        <button class="play-btn" id="play-btn">Jouer</button>
-        
+
+        <button class="play-btn" id="play-btn">
+            <span class="front">
+                Jouer
+            </span>
+        </button>
+
+
+
         <div class="social-links">
+
             <a href="#" class="social-link">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIuNTMuMDJDMTMuODQgMCAxNS4xNC4wMSAxNi40NC4zN2ExMC45IDEwLjkgMCAwIDEgOC4wMyA4LjUzYy4yMiAxLjExLjE5IDIuMjYuMTkgMy4zOSAwIC42NS4wMSAxLjI5LS4wMSAxLjk0LS4wMSAxLjI3LS4wMyAyLjU0LS4wNiAzLjgxLS4wNCAxLjI5LS4xIDIuNTktLjE2IDMuODhhNyA3IDAgMCAxLTEuNTcgNC40NmMtMS4yOCAxLjI4LTIuNjkgMi4xLTQuNTYgMi40NS0xLjM5LjI2LTIuOC4yNC00LjIxLjI0LTEuNCAwLTIuODMtLjAyLTQuMjEtLjI1YTYuNjEgNi42MSAwIDAgMS00LjA0LTIuMTkgNyA3IDAgMCAxLTItNC43N2MtLjE0LTEuMTUtLjE2LTIuMzItLjE5LTMuNDktLjA0LTEuNDMtLjA1LTIuODYtLjA2LTQuMjlBMjk5LjI2IDI5OS4yNiAwIDAgMSAzLjYgOC41NiA4LjAgOC4wIDAgMCAxIDkuMDguMzdjMSAuMjMgMi4wNS4xMiAzLjA3LjEyLS4xIDAtLjQyLS40Ny0uNDYgMHoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTIuNzUgNS45MWMuMzggMCAuNzYtLjAyIDEuMTQuMCAxLjAyLjAzIDIuMDUuMDYgMy4wNy4xMyAxLjA0LjA3IDIuMDcuMiAzLjA5LjQxLjE5LjA0LjI4LjEuMjYuMzEtLjIuMjUtLjAzLjUtLjA2Ljc1LS4xMS44Mi0uMjIgMS42NC0uMzQgMi40Ni0uMTUuOTgtLjMgMS45Ni0uNDYgMi45NC0uMTcgMS4wMS0uMzQgMi4wMS0uNTIgMy4wMi0uMTMuNzQtLjI2IDEuNDgtLjM5IDIuMjItLjExLjYtLjIzIDEuMi0uMzQgMS43OS0uMDYuMzQtLjIuNDctLjU1LjVhMjUuODggMjUuODggMCAwIDEtMy4wNS4yOGMtLjkuMDQtMS43OS4wNi0yLjY4LjA5LS45Mi4wMy0xLjg0LjA0LTIuNzYuMDItLjkzLS4wMS0xLjg2LS4wNy0yLjc4LS4xNi0uOC0uMDgtMS42LS4xOC0yLjQtLjM1LS4yNS0uMDUtLjM3LS4xOC0uNC0uNDNhMTQ1LjU5IDE0NS41OSAwIDAgMS0xLjQxLTguODhjLS4wNi0uNDctLjExLS45NC0uMi0xLjRsLS4xNy0xLjA0Yy0uMDMtLjIuMDUtLjMuMjUtLjMzIDEuNTMtLjI2IDMuMDgtLjQgNC42My0uNS45My0uMDYgMS44NS0uMSAyLjc4LS4xLjU5IDAgMS4xOCAwIDEuNzggMHoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTIuMDIgMTYuNzlhMy44OSAzLjg5IDAgMCAxLTIuMDctLjU3IDMuODMgMy44MyAwIDAgMS0xLjg4LTMuMDdjLS4xLTEuMDMuMDgtMi4wMy4zOS0yLjk3LjUtMS41MyAxLjc1LTIuMjggMy4yOS0yLjY0YTUuOTIgNS45MiAwIDAgMSA0LjEzLjIzYy44Ni4zNSAxLjU0LjkgMiAxLjc2LjM3LjY3LjUzIDEuMzcuNTggMi4wOS4wNC41Ni4wMiAxLjExLS4wMiAxLjY3YTMuOCAzLjggMCAwIDEtMyAzLjMgNi4xIDYuMSAwIDAgMS0xLjYxLjE1Yy0uNiAwLTEuMiAwLTEuOC4wNXoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTcuMzQgNi45MmEuOTMuOTMgMCAwIDEtLjkzLS45MWMwLS41LjQyLS45NC45My0uOTRhLjk0Ljk0IDAgMCAxIC45My45NGMwIC41LS40Mi45MS0uOTMuOTF6IiBmaWxsPSIjMTYxODIzIi8+PC9zdmc+" class="social-icon">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIuNTMuMDJDMTMuODQgMCAxNS4xNC4wMSAxNi40NC4zN2ExMC45IDEwLjkgMCAwIDEgOC4wMyA4LjUzYy4yMiAxLjExLjE5IDIuMjYuMTkgMy4zOSAwIC42NS4wMSAxLjI5LS4wMSAxLjk0LS4wMSAxLjI3LS4wMyAyLjU0LS4wNiAzLjgxLS4wNCAxLjI5LS4xIDIuNTktLjE2IDMuODhhNyA3IDAgMCAxLTEuNTcgNC40NmMtMS4yOCAxLjI4LTIuNjkgMi4xLTQuNTYgMi40NS0xLjM5LjI2LTIuOC4yNC00LjIxLjI0LTEuNCAwLTIuODMtLjAyLTQuMjEtLjI1YTYuNjEgNi42MSAwIDAgMS00LjA0LTIuMTkgNyA3IDAgMCAxLTItNC43N2MtLjE0LTEuMTUtLjE2LTIuMzItLjE5LTMuNDktLjA0LTEuNDMtLjA1LTIuODYtLjA2LTQuMjlBMjk5LjI2IDI5OS4yNiAwIDAgMSAzLjYgOC41NiA4LjAgOC4wIDAgMCAxIDkuMDguMzdjMSAuMjMgMi4wNS4xMiAzLjA3LjEyLS4xIDAtLjQyLS40Ny0uNDYgMHoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTIuNzUgNS45MWMuMzggMCAuNzYtLjAyIDEuMTQuMCAxLjAyLjAzIDIuMDUuMDYgMy4wNy4xMyAxLjA0LjA3IDIuMDcuMiAzLjA5LjQxLjE5LjA0LjI4LjEuMjYuMzEtLjIuMjUtLjAzLjUtLjA2Ljc1LS4xMS44Mi0uMjIgMS42NC0uMzQgMi40Ni0uMTUuOTgtLjMgMS45Ni0uNDYgMi45NC0uMTcgMS4wMS0uMzQgMi4wMS0uNTIgMy4wMi0uMTMuNzQtLjI2IDEuNDgtLjM5IDIuMjItLjExLjYtLjIzIDEuMi0uMzQgMS43OS0uMDYuMzQtLjIuNDctLjU1LjVhMjUuODggMjUuODggMCAwIDEtMy4wNS4yOGMtLjkuMDQtMS43OS4wNi0yLjY4LjA5LS45Mi4wMy0xLjg0LjA0LTIuNzYuMDItLjkzLS4wMS0xLjg2LS4wNy0yLjc4LS4xNi0uOC0uMDgtMS42LS4xOC0yLjQtLjM1LS4yNS0uMDUtLjM3LS4xOC0uNC0uNDNhMTQ1LjU5IDE0NS41OSAwIDAgMS0xLjQxLTguODhjLS4wNi0uNDctLjExLS45NC0uMi0xLjRsLS4xNy0xLjA0Yy0uMDMtLjIuMDUtLjMuMjUtLjMzIDEuNTMtLjI2IDMuMDgtLjQgNC42My0uNS45My0uMDYgMS44NS0uMSAyLjc4LS4xLjU5IDAgMS4xOCAwIDEuNzggMHoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTIuMDIgMTYuNzlhMy44OSAzLjg5IDAgMCAxLTIuMDctLjU3IDMuODMgMy44MyAwIDAgMS0xLjg4LTMuMDdjLS4xLTEuMDMuMDgtMi4wMy4zOS0yLjk3LjUtMS41MyAxLjc1LTIuMjggMy4yOS0yLjY0YTUuOTIgNS45MiAwIDAgMSA0LjEzLjIzYy44Ni4zNSAxLjU0LjkgMiAxLjc2LjM3LjY3LjUzIDEuMzcuNTggMi4wOS4wNC41Ni4wMiAxLjExLS4wMiAxLjY3YTMuOCAzLjggMCAwIDEtMyAzLjMgNi4xIDYuMSAwIDAgMS0xLjYxLjE1Yy0uNiAwLTEuMiAwLTEuOC4wNXoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTcuMzQgNi45MmEuOTMuOTMgMCAwIDEtLjkzLS45MWMwLS41LjQyLS45NC45My0uOTRhLjk0Ljk0IDAgMCAxIC45My45NGMwIC41LS40Mi45MS0uOTMuOTF6IiBmaWxsPSIjMTYxODIzIi8+PC9zdmc+"
+                    class="social-icon">
             </a>
             <a href="#" class="social-link">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMEMxOC4xIDAgMjMgNC45IDIzIDExYzAgNC4yLTIuNCA4LTYuMyAxMC0uMS0uMS0uMi0uMy0uMi0uNXYtMS42Yy4zLjEuNi4xLjkuMSAxLjQgMCAyLjUtMS4xIDIuNS0yLjUgMC0xLjQtMS4xLTIuNS0yLjUtMi41cy0yLjUgMS4xLTIuNSAyLjVjMCAuOC40IDEuNSAxIDEuOS0uMy4xLS42LjItLjkuMi0uMyAwLS41LS4xLS44LS4xdi00LjRjLjMuMS42LjEuOS4xIDEuNCAwIDIuNS0xLjEgMi41LTIuNXMtMS4xLTIuNS0yLjUtMi41LTIuNSAxLjEtMi41IDIuNWMwIC44LjQgMS41IDEgMS45VjE5Yy0uMyAwLS43LS4xLTEtLjEtLjkgMC0xLjcuMi0yLjUuNS4zLS42LjUtMS4yLjUtMi40VjkuMmMuNi40IDEuMi42IDIgLjYgMS45IDAgMy41LTEuNiAzLjUtMy41UzEzLjkgMi44IDEyIDIuOHMtMy41IDEuNi0zLjUgMy41YzAgMS4xLjUgMi4xIDEuMyAyLjh2MWMtLjkuMS0xLjcuNS0yLjQgMS4xLS43LS41LTEuNC0uNy0yLjItLjctMi4xIDAtMy44IDEuNy0zLjggMy44IDAgMS41LjkgMi43IDIuMiAzLjQtLjEuMy0uMi43LS4yIDEuMSAwIDIuMiAxLjggNCA0IDQgMS4yIDAgMi4zLS41IDMtMS40LjcuOSAxLjggMS40IDMgMS40LjQgMCAuOC0uMS0xLjEtLjIuNC4xLjcuMiAxLjEuMiAyLjIgMCA0LTEuOCA0LTQgMC0xLjgtMS4yLTMuNC0yLjgtMy45LjEtLjMuMS0uNi4xLS45IDAtLjIgMC0uNC0uMS0uNUMyMS41IDE3LjkgMjMgMTQuNiAyMyAxMS4xIDIzIDQuOSAxOC4xIDAgMTIgMHoiLz48L3N2Zz4=" class="social-icon">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMEMxOC4xIDAgMjMgNC45IDIzIDExYzAgNC4yLTIuNCA4LTYuMyAxMC0uMS0uMS0uMi0uMy0uMi0uNXYtMS42Yy4zLjEuNi4xLjkuMSAxLjQgMCAyLjUtMS4xIDIuNS0yLjUgMC0xLjQtMS4xLTIuNS0yLjUtMi41cy0yLjUgMS4xLTIuNSAyLjVjMCAuOC40IDEuNSAxIDEuOS0uMy4xLS42LjItLjkuMi0uMyAwLS41LS4xLS44LS4xdi00LjRjLjMuMS42LjEuOS4xIDEuNCAwIDIuNS0xLjEgMi41LTIuNXMtMS4xLTIuNS0yLjUtMi41LTIuNSAxLjEtMi41IDIuNWMwIC44LjQgMS41IDEgMS45VjE5Yy0uMyAwLS43LS4xLTEtLjEtLjkgMC0xLjcuMi0yLjUuNS4zLS42LjUtMS4yLjUtMi40VjkuMmMuNi40IDEuMi42IDIgLjYgMS45IDAgMy41LTEuNiAzLjUtMy41UzEzLjkgMi44IDEyIDIuOHMtMy41IDEuNi0zLjUgMy41YzAgMS4xLjUgMi4xIDEuMyAyLjh2MWMtLjkuMS0xLjcuNS0yLjQgMS4xLS43LS41LTEuNC0uNy0yLjItLjctMi4xIDAtMy44IDEuNy0zLjggMy44IDAgMS41LjkgMi43IDIuMiAzLjQtLjEuMy0uMi43LS4yIDEuMSAwIDIuMiAxLjggNCA0IDQgMS4yIDAgMi4zLS41IDMtMS40LjcuOSAxLjggMS40IDMgMS40LjQgMCAuOC0uMS0xLjEtLjIuNC4xLjcuMiAxLjEuMiAyLjIgMCA0LTEuOCA0LTQgMC0xLjgtMS4yLTMuNC0yLjgtMy45LjEtLjMuMS0uNi4xLS45IDAtLjIgMC0uNC0uMS0uNUMyMS41IDE3LjkgMjMgMTQuNiAyMyAxMS4xIDIzIDQuOSAxOC4xIDAgMTIgMHoiLz48L3N2Zz4="
+                    class="social-icon">
             </a>
         </div>
-        
-        <div class="bottom-indicator"></div>
+
+
     </div>
-    
+
     <!-- Game Mode Selection Screen -->
     <div class="screen" id="game-mode-screen">
         <button class="back-btn" id="back-to-main">←</button>
         <h2 class="mode-title">Choisis ton mode</h2>
-        
+
         <div class="mode-options">
             <div class="mode-option" data-mode="action-verite">
                 <h3>Action ou Vérité</h3>
                 <p>Réponds à des questions ou réalise des actions. Un refus = un Toz!</p>
             </div>
-            
+
             <div class="mode-option" data-mode="jamais">
                 <h3>Je n'ai jamais</h3>
                 <p>Si tu as déjà fait l'action mentionnée, prends un Toz!</p>
             </div>
         </div>
     </div>
-    
+
     <!-- Action ou Vérité Screen -->
     <div class="screen" id="action-verite-screen">
         <button class="back-btn" id="back-to-modes-av">←</button>
         <h2 class="mode-title">Action ou Vérité</h2>
-        
+
         <div class="toz-indicators" id="av-toz-indicators"></div>
-        
+
         <div class="game-container">
             <div class="question-card">
                 <div class="player-indicator" id="av-current-player">Joueur 1</div>
                 <div class="question-text" id="av-question">
                     Raconte ta plus grosse honte...
                 </div>
-                
+
                 <div class="response-buttons">
                     <button class="response-btn yes" id="av-accept">Fait ✓</button>
                     <button class="response-btn no" id="av-refuse">Toz! ✗</button>
                 </div>
             </div>
-            
+
             <button class="next-btn" id="av-next">Question suivante</button>
         </div>
     </div>
-    
+
     <!-- Je n'ai jamais Screen -->
     <div class="screen" id="jamais-screen">
         <button class="back-btn" id="back-to-modes-jn">←</button>
         <h2 class="mode-title">Je n'ai jamais...</h2>
-        
+
         <div class="toz-indicators" id="jn-toz-indicators"></div>
-        
+
         <div class="game-container">
             <div class="question-card">
                 <div class="player-indicator" id="jn-current-player">Joueur 1</div>
                 <div class="question-text" id="jn-question">
                     Je n'ai jamais triché à un examen
                 </div>
-                
+
                 <div class="response-buttons">
                     <button class="response-btn yes" id="jn-never">Jamais fait ✓</button>
                     <button class="response-btn no" id="jn-done">Déjà fait ✗</button>
                 </div>
             </div>
-            
+
             <button class="next-btn" id="jn-next">Question suivante</button>
         </div>
     </div>
-    
+
     <!-- Add Player Modal -->
     <div class="modal" id="add-player-modal">
         <div class="modal-content">
@@ -116,52 +136,6 @@
     </div>
 
     <script>
-        // Variables globales
-        let players = [];
-        let currentMode = '';
-        let currentPlayerIndex = 0;
-        let questions = {
-            'action': [
-                "Fais 10 pompes",
-                "Imite un animal pendant 30 secondes",
-                "Envoie un message embarrassant à quelqu'un",
-                "Montre les dernières photos dans ton téléphone",
-                "Fais le tour de la pièce en marchant sur les genoux",
-                "Fais un compliment à chaque joueur",
-                "Raconte une blague",
-                "Chante le début d'une chanson",
-                "Tiens-toi sur une jambe pendant 1 minute",
-                "Fais semblant d'être un influenceur pour 1 minute"
-            ],
-            'verite': [
-                "Quel est ton plus grand regret ?",
-                "As-tu déjà triché à un examen ?",
-                "Quelle est la chose la plus embarrassante que tu aies faite ?",
-                "Quelle est ta plus grande peur ?",
-                "Qui est ton crush secret ?",
-                "Quel est le mensonge le plus important que tu aies dit ?",
-                "Quelle est la chose la plus folle que tu aies faite ?",
-                "Qui parmi les joueurs aimerais-tu le moins avoir comme colocataire ?",
-                "Quelle est ta pire habitude ?",
-                "Quel est ton plus grand fantasme ?"
-            ],
-            'jamais': [
-                "Je n'ai jamais menti à mes parents",
-                "Je n'ai jamais séché les cours",
-                "Je n'ai jamais eu une amende",
-                "Je n'ai jamais été bourré(e)",
-                "Je n'ai jamais voyagé seul(e)",
-                "Je n'ai jamais pleuré devant un film",
-                "Je n'ai jamais fait semblant d'être malade pour éviter quelque chose",
-                "Je n'ai jamais eu un accident de voiture",
-                "Je n'ai jamais regardé un film pour adultes",
-                "Je n'ai jamais flirté avec quelqu'un en couple",
-                "Je n'ai jamais volé quelque chose",
-                "Je n'ai jamais dormi dehors",
-                "Je n'ai jamais eu de tatouage ou piercing",
-                "Je n'ai jamais eu le béguin pour le partenaire d'un(e) ami(e)",
-                "Je n'ai jamais mangé de la nourriture tombée par terre",
-            ]
-        }
+
     </script>
 </body>
