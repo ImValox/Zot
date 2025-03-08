@@ -21,17 +21,11 @@
         <div class="player-section" id="player-section">
             <button class="add-player-btn" id="add-player-btn">
                 <span class="front">
-                    Ajouter un joueur
+                    <dir><input type="text" placeholder="Ajouter un joueur" class="player-input"></dir>
                     <div class="add-icon">+</div>
                 </span>
             </button>
 
-            <button class="player-btn" id="player-btn">
-                <span class="front">
-                    Joueur 1
-                    <div class="remove-icon">-</div>
-                </span>
-            </button>
         </div>
 
         <button class="play-btn" id="play-btn">
@@ -45,97 +39,94 @@
         <div class="social-links">
 
             <a href="#" class="social-link">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIuNTMuMDJDMTMuODQgMCAxNS4xNC4wMSAxNi40NC4zN2ExMC45IDEwLjkgMCAwIDEgOC4wMyA4LjUzYy4yMiAxLjExLjE5IDIuMjYuMTkgMy4zOSAwIC42NS4wMSAxLjI5LS4wMSAxLjk0LS4wMSAxLjI3LS4wMyAyLjU0LS4wNiAzLjgxLS4wNCAxLjI5LS4xIDIuNTktLjE2IDMuODhhNyA3IDAgMCAxLTEuNTcgNC40NmMtMS4yOCAxLjI4LTIuNjkgMi4xLTQuNTYgMi40NS0xLjM5LjI2LTIuOC4yNC00LjIxLjI0LTEuNCAwLTIuODMtLjAyLTQuMjEtLjI1YTYuNjEgNi42MSAwIDAgMS00LjA0LTIuMTkgNyA3IDAgMCAxLTItNC43N2MtLjE0LTEuMTUtLjE2LTIuMzItLjE5LTMuNDktLjA0LTEuNDMtLjA1LTIuODYtLjA2LTQuMjlBMjk5LjI2IDI5OS4yNiAwIDAgMSAzLjYgOC41NiA4LjAgOC4wIDAgMCAxIDkuMDguMzdjMSAuMjMgMi4wNS4xMiAzLjA3LjEyLS4xIDAtLjQyLS40Ny0uNDYgMHoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTIuNzUgNS45MWMuMzggMCAuNzYtLjAyIDEuMTQuMCAxLjAyLjAzIDIuMDUuMDYgMy4wNy4xMyAxLjA0LjA3IDIuMDcuMiAzLjA5LjQxLjE5LjA0LjI4LjEuMjYuMzEtLjIuMjUtLjAzLjUtLjA2Ljc1LS4xMS44Mi0uMjIgMS42NC0uMzQgMi40Ni0uMTUuOTgtLjMgMS45Ni0uNDYgMi45NC0uMTcgMS4wMS0uMzQgMi4wMS0uNTIgMy4wMi0uMTMuNzQtLjI2IDEuNDgtLjM5IDIuMjItLjExLjYtLjIzIDEuMi0uMzQgMS43OS0uMDYuMzQtLjIuNDctLjU1LjVhMjUuODggMjUuODggMCAwIDEtMy4wNS4yOGMtLjkuMDQtMS43OS4wNi0yLjY4LjA5LS45Mi4wMy0xLjg0LjA0LTIuNzYuMDItLjkzLS4wMS0xLjg2LS4wNy0yLjc4LS4xNi0uOC0uMDgtMS42LS4xOC0yLjQtLjM1LS4yNS0uMDUtLjM3LS4xOC0uNC0uNDNhMTQ1LjU5IDE0NS41OSAwIDAgMS0xLjQxLTguODhjLS4wNi0uNDctLjExLS45NC0uMi0xLjRsLS4xNy0xLjA0Yy0uMDMtLjIuMDUtLjMuMjUtLjMzIDEuNTMtLjI2IDMuMDgtLjQgNC42My0uNS45My0uMDYgMS44NS0uMSAyLjc4LS4xLjU5IDAgMS4xOCAwIDEuNzggMHoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTIuMDIgMTYuNzlhMy44OSAzLjg5IDAgMCAxLTIuMDctLjU3IDMuODMgMy44MyAwIDAgMS0xLjg4LTMuMDdjLS4xLTEuMDMuMDgtMi4wMy4zOS0yLjk3LjUtMS41MyAxLjc1LTIuMjggMy4yOS0yLjY0YTUuOTIgNS45MiAwIDAgMSA0LjEzLjIzYy44Ni4zNSAxLjU0LjkgMiAxLjc2LjM3LjY3LjUzIDEuMzcuNTggMi4wOS4wNC41Ni4wMiAxLjExLS4wMiAxLjY3YTMuOCAzLjggMCAwIDEtMyAzLjMgNi4xIDYuMSAwIDAgMS0xLjYxLjE1Yy0uNiAwLTEuMiAwLTEuOC4wNXoiIGZpbGw9IiMxNjE4MjMiLz48cGF0aCBkPSJNMTcuMzQgNi45MmEuOTMuOTMgMCAwIDEtLjkzLS45MWMwLS41LjQyLS45NC45My0uOTRhLjk0Ljk0IDAgMCAxIC45My45NGMwIC41LS40Mi45MS0uOTMuOTF6IiBmaWxsPSIjMTYxODIzIi8+PC9zdmc+"
-                    class="social-icon">
-            </a>
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor" fill-opacity="0"><circle cx="9" cy="12" r="1.5"><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.15s" values="0;1"/></circle><circle cx="15" cy="12" r="1.5"><animate fill="freeze" attributeName="fill-opacity" begin="1.45s" dur="0.15s" values="0;1"/></circle><path d="M5 5l7 0.2l7 -0.2l3 10l-3 3.4h-14l-3.5 -3.4l3.5 -10Z"><animate fill="freeze" attributeName="fill-opacity" begin="1.7s" dur="0.15s" values="0;0.3"/></path></g><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="32" stroke-dashoffset="32" d="M12 6h2l1 -2c0 0 2.5 0.5 4 1.5c3.53 2.35 3 9.5 3 10.5c-1.33 2.17 -5.5 3.5 -5.5 3.5l-1 -2M12 6h-2l-0.97 -2c0 0 -2.5 0.5 -4 1.5c-3.53 2.35 -3 9.5 -3 10.5c1.33 2.17 5.5 3.5 5.5 3.5l1 -2"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.7s" values="32;0"/></path><path stroke-dasharray="16" stroke-dashoffset="16" d="M5.5 16c5 2.5 8 2.5 13 0"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.4s" values="16;0"/></path></g></svg>            </a>
             <a href="#" class="social-link">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMEMxOC4xIDAgMjMgNC45IDIzIDExYzAgNC4yLTIuNCA4LTYuMyAxMC0uMS0uMS0uMi0uMy0uMi0uNXYtMS42Yy4zLjEuNi4xLjkuMSAxLjQgMCAyLjUtMS4xIDIuNS0yLjUgMC0xLjQtMS4xLTIuNS0yLjUtMi41cy0yLjUgMS4xLTIuNSAyLjVjMCAuOC40IDEuNSAxIDEuOS0uMy4xLS42LjItLjkuMi0uMyAwLS41LS4xLS44LS4xdi00LjRjLjMuMS42LjEuOS4xIDEuNCAwIDIuNS0xLjEgMi41LTIuNXMtMS4xLTIuNS0yLjUtMi41LTIuNSAxLjEtMi41IDIuNWMwIC44LjQgMS41IDEgMS45VjE5Yy0uMyAwLS43LS4xLTEtLjEtLjkgMC0xLjcuMi0yLjUuNS4zLS42LjUtMS4yLjUtMi40VjkuMmMuNi40IDEuMi42IDIgLjYgMS45IDAgMy41LTEuNiAzLjUtMy41UzEzLjkgMi44IDEyIDIuOHMtMy41IDEuNi0zLjUgMy41YzAgMS4xLjUgMi4xIDEuMyAyLjh2MWMtLjkuMS0xLjcuNS0yLjQgMS4xLS43LS41LTEuNC0uNy0yLjItLjctMi4xIDAtMy44IDEuNy0zLjggMy44IDAgMS41LjkgMi43IDIuMiAzLjQtLjEuMy0uMi43LS4yIDEuMSAwIDIuMiAxLjggNCA0IDQgMS4yIDAgMi4zLS41IDMtMS40LjcuOSAxLjggMS40IDMgMS40LjQgMCAuOC0uMS0xLjEtLjIuNC4xLjcuMiAxLjEuMiAyLjIgMCA0LTEuOCA0LTQgMC0xLjgtMS4yLTMuNC0yLjgtMy45LjEtLjMuMS0uNi4xLS45IDAtLjIgMC0uNC0uMS0uNUMyMS41IDE3LjkgMjMgMTQuNiAyMyAxMS4xIDIzIDQuOSAxOC4xIDAgMTIgMHoiLz48L3N2Zz4="
-                    class="social-icon">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="17" cy="7" r="1.5" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="1.3s" dur="0.15s" values="0;1"/></circle><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="72" stroke-dashoffset="72" d="M16 3c2.76 0 5 2.24 5 5v8c0 2.76 -2.24 5 -5 5h-8c-2.76 0 -5 -2.24 -5 -5v-8c0 -2.76 2.24 -5 5 -5h4Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="72;0"/></path><path stroke-dasharray="28" stroke-dashoffset="28" d="M12 8c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.6s" values="28;0"/></path></g></svg>
             </a>
         </div>
 
 
     </div>
 
-    <!-- Game Mode Selection Screen -->
-    <div class="screen" id="game-mode-screen">
-        <button class="back-btn" id="back-to-main">←</button>
-        <h2 class="mode-title">Choisis ton mode</h2>
-
-        <div class="mode-options">
-            <div class="mode-option" data-mode="action-verite">
-                <h3>Action ou Vérité</h3>
-                <p>Réponds à des questions ou réalise des actions. Un refus = un Toz!</p>
+    <div class="container" id="game-mode-screen" style="display: none;">
+        <button class="back-btn" id="back-to-main">⬅️</button>
+        
+        <div class="logo-container">
+            <div class="logo">
+                <span>ZOT</span>
             </div>
-
+        </div>
+        
+        <div class="modes-container">
             <div class="mode-option" data-mode="jamais">
-                <h3>Je n'ai jamais</h3>
-                <p>Si tu as déjà fait l'action mentionnée, prends un Toz!</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Action ou Vérité Screen -->
-    <div class="screen" id="action-verite-screen">
-        <button class="back-btn" id="back-to-modes-av">←</button>
-        <h2 class="mode-title">Action ou Vérité</h2>
-
-        <div class="toz-indicators" id="av-toz-indicators"></div>
-
-        <div class="game-container">
-            <div class="question-card">
-                <div class="player-indicator" id="av-current-player">Joueur 1</div>
-                <div class="question-text" id="av-question">
-                    Raconte ta plus grosse honte...
+                <div class="mode-icon">🤫</div>
+                <div class="mode-info">
+                    <h2>Je n'ai jamais</h2>
+                    <p>Si tu l'as déjà fait, tu perds</p>
                 </div>
-
-                <div class="response-buttons">
-                    <button class="response-btn yes" id="av-accept">Fait ✓</button>
-                    <button class="response-btn no" id="av-refuse">Toz! ✗</button>
+            </div>
+            
+            <div class="mode-option" data-mode="action-verite">
+                <div class="mode-icon">❓</div>
+                <div class="mode-info">
+                    <h2>Action ou Vérité</h2>
+                    <p>Réponds à la question ou fais le défi, sinon tu perds</p>
                 </div>
             </div>
 
-            <button class="next-btn" id="av-next">Question suivante</button>
         </div>
     </div>
-
-    <!-- Je n'ai jamais Screen -->
-    <div class="screen" id="jamais-screen">
-        <button class="back-btn" id="back-to-modes-jn">←</button>
-        <h2 class="mode-title">Je n'ai jamais...</h2>
-
-        <div class="toz-indicators" id="jn-toz-indicators"></div>
-
-        <div class="game-container">
-            <div class="question-card">
-                <div class="player-indicator" id="jn-current-player">Joueur 1</div>
-                <div class="question-text" id="jn-question">
-                    Je n'ai jamais triché à un examen
-                </div>
-
-                <div class="response-buttons">
-                    <button class="response-btn yes" id="jn-never">Jamais fait ✓</button>
-                    <button class="response-btn no" id="jn-done">Déjà fait ✗</button>
-                </div>
+    
+    <!-- Écran Je n'ai jamais -->
+    <div class="container" id="jamais-screen" style="display: none;">
+        <button class="back-btn" id="back-to-modes-jn">⬅️</button>
+        
+        <div class="game-card">
+            <div class="toz-header">
+                <span id="jn-toz-count">0 toz</span>
             </div>
-
-            <button class="next-btn" id="jn-next">Question suivante</button>
+            <div class="current-player">
+                <span id="jn-current-player">Joueur 1</span>
+            </div>
+            <div class="question-container" id="jn-question">
+                été à une soirée à thème
+            </div>
+            <div class="drink-icon">🥤</div>
+        </div>
+        
+        <div class="game-controls">
+            <button class="game-btn" id="jn-next-question">>>></button>
         </div>
     </div>
-
-    <!-- Add Player Modal -->
-    <div class="modal" id="add-player-modal">
-        <div class="modal-content">
-            <h3 class="modal-title">Ajouter un joueur</h3>
-            <input type="text" class="player-input" id="new-player-name" placeholder="Nom du joueur">
-            <div class="modal-buttons">
-                <button class="modal-btn cancel" id="cancel-add-player">Annuler</button>
-                <button class="modal-btn save" id="save-player">Ajouter</button>
+    
+    <!-- Écran Action ou Vérité -->
+    <div class="container" id="action-verite-screen" style="display: none;">
+        <button class="back-btn" id="back-to-modes-av">⬅️</button>
+        
+        
+        
+        <div class="game-card av-card">
+            <div class="toz-header">
+                <span id="av-toz-count">0 toz</span>
+            </div>
+            <div class="current-player">
+                <span id="av-current-player">Joueur 1</span>
+            </div>
+            
+            
+            <div class="question-container" id="av-question" style="display: none;">
+                <!-- La question ou l'action sera affichée ici -->
             </div>
         </div>
+        
+        
+        
+        <div class="game-controls">
+            
+            <button class="game-btn" id="av-refused">X</button>
+            <button class="game-btn" id="av-done">✓</button>
+        </div>
     </div>
 
-    <script>
-
-    </script>
+    <script src="script.js"></script>
 </body>
