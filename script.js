@@ -69,31 +69,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     document.getElementById('back-to-main').addEventListener('click', function() {
-        document.getElementById('game-mode-screen').style.display = 'none';
-        document.getElementById('main-container').style.display = 'flex';
+        transitionToScreen('main-container', 'game-mode-screen', true);
     });
-    
-    // Données pour les questions Je n'ai jamais avec nombre de Toz
+
+    document.getElementById('back-to-modes-jn').addEventListener('click', function() {
+        transitionToScreen('game-mode-screen', 'jamais-screen', true);
+    });
+
+    document.getElementById('back-to-modes-av').addEventListener('click', function() {
+        transitionToScreen('game-mode-screen', 'action-verite-screen', true);
+    });
+
     const jamaisQuestions = [
         { question: "été à une soirée à thème", toz: 1 },
         { question: "voyagé hors de France", toz: 2 },
         { question: "fait un tatouage", toz: 3 },
-        // Ajoutez d'autres questions ici
     ];
     
-    // Données pour Action ou Vérité avec nombre de Toz
     const actionQuestions = [
         { question: "Imite un animal de ton choix pendant 30 secondes", toz: 1 },
         { question: "Prends une photo embarrassante et montre-la au groupe", toz: 2 },
         { question: "Fais 10 pompes", toz: 3 },
-        // Ajoutez d'autres questions ici
     ];
     
     const veriteQuestions = [
         { question: "Quelle est la chose la plus embarrassante que tu aies faite en public?", toz: 1 },
         { question: "Quel est ton plus grand regret?", toz: 2 },
         { question: "As-tu déjà menti à quelqu'un dans cette pièce?", toz: 3 },
-        // Ajoutez d'autres questions ici
     ];
     
     let currentPlayerIndex = 0;
@@ -106,20 +108,16 @@ document.addEventListener('DOMContentLoaded', function() {
     renderPlayers();
     
     playBtn.addEventListener('click', function() {
-        if (players.length < 2) {
-            alert("Veuillez ajouter au moins deux joueur pour commencer!");
-            return;
-        }
-
-        localStorage.setItem('zotPlayers', JSON.stringify(players));
+        setTimeout(function() {
+            if (players.length < 2) {
+                alert("Veuillez ajouter au moins deux joueur pour commencer!");
+                return;
+            }
         
-        document.getElementById('main-container').style.display = 'none';
-        document.getElementById('game-mode-screen').style.display = 'flex';
-    });
-    
-    document.getElementById('back-to-main').addEventListener('click', function() {
-        document.getElementById('game-mode-screen').style.display = 'none';
-        document.getElementById('main-container').style.display = 'flex';
+            localStorage.setItem('zotPlayers', JSON.stringify(players));
+            
+            transitionToScreen('game-mode-screen', 'main-container');
+        }, 100);
     });
     
     const modeOptions = document.querySelectorAll('.mode-option');
@@ -127,13 +125,12 @@ document.addEventListener('DOMContentLoaded', function() {
         option.addEventListener('click', function() {
             const mode = this.getAttribute('data-mode');
             currentMode = mode;
-            document.getElementById('game-mode-screen').style.display = 'none';
             
             if (mode === 'action-verite') {
-                document.getElementById('action-verite-screen').style.display = 'flex';
+                transitionToScreen('action-verite-screen', 'game-mode-screen');
                 initializeGameScreen('av');
             } else if (mode === 'jamais') {
-                document.getElementById('jamais-screen').style.display = 'flex';
+                transitionToScreen('jamais-screen', 'game-mode-screen');
                 initializeGameScreen('jn');
                 displayRandomQuestion('jn', jamaisQuestions);
             } else if (mode === 'tu-preferes') {
@@ -195,4 +192,26 @@ document.addEventListener('DOMContentLoaded', function() {
         nextPlayer('av');
         displayRandomQuestion('av', actionQuestions.concat(veriteQuestions));
     });
+
+    function transitionToScreen(showId, hideId, reverse = false) {
+        const showElement = document.getElementById(showId);
+        const hideElement = document.getElementById(hideId);
+
+        
+
+        if (reverse) {
+            showElement.style.transform = 'translateX(-100%)';
+        } else {
+            showElement.style.transform = 'translateX(100%)';
+        }
+        showElement.style.display = 'flex';
+
+        setTimeout(() => {
+            showElement.style.transform = 'translateX(0)';
+        }, 10);
+
+        setTimeout(() => {
+            hideElement.style.display = 'none';
+        }, 500);
+    }
 });

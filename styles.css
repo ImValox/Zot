@@ -24,7 +24,6 @@ body {
 
 
 .container {
-    
     width: 100%;
     max-width: 430px;
     display: flex;
@@ -32,7 +31,45 @@ body {
     align-items: center;
     justify-content: space-between; /* Ajouté pour centrer verticalement */
     height: 100vh; /* Assurez-vous que le conteneur prend toute la hauteur de la page */
-    padding: 70px 0;
+    padding: 15px 0;
+    background-color: var(--dark-color);
+}
+
+/* Styles pour les transitions de type push */
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+#main-container {
+    z-index: 1;
+}
+
+#game-mode-screen {
+    z-index: 2;
+    transform: translateX(100%);
+}
+
+#jamais-screen {
+    z-index: 2;
+    transform: translateX(100%);
+}
+
+#action-verite-screen {
+    z-index: 2;
+    transform: translateX(100%);
+}
+
+.container.active {
+    transform: translateX(0);
+}
+
+.container.exiting {
+    transform: translateX(100%);
 }
 
 .logo-container {
@@ -320,7 +357,7 @@ body {
 
 .game-card {
     width: 90%;
-    min-height: 550px;
+    height: 100%;
     background-color: #1a1d2a;
     border-radius: 30px;
     padding: 10px;
@@ -328,7 +365,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Ajouté pour centrer le contenu de la carte */
-    margin-bottom: 30px;
+    margin: 60px;
     position: relative;
 }
 
@@ -377,8 +414,8 @@ body {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 25px;
-    padding: 12px 25px;
+    border-radius: 50%;
+    padding: 12px 12px;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -391,6 +428,11 @@ body {
 
 .game-btn:active {
     transform: translateY(0);
+}
+
+.game-btn svg {
+    height: 40px;
+    width: 40px;
 }
 
 /* Style spécifique pour Action ou Vérité */
