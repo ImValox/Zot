@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>zot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    .zot {
+      width: 300px;
+      height: 600px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.1s ease-in-out;
+    }
+
+    .loaded.zot {
+      opacity: 1;
+    }
+
+    .zot--cards {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .zot--card {
+      width: 250px;
+      height: 350px;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+      position: absolute;
+      cursor: grab;
+      overflow: hidden;
+      transform: scale(1);
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    .moving.zot--card {
+      cursor: grabbing;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .zot--card:nth-child(odd) {
+      background-color: #fffcf7;
+    }
+
+    .zot--card:nth-child(even) {
+      background-color: #e7f3f9;
+    }
+
+    .zot--card img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    .zot--card h3 {
+      position: absolute;
+      bottom: 20px;
+      left: 10px;
+      color: #333;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .zot--card p {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="position: absolute;width: 300px;height: 600px;top: 0px;left: 0px;overflow: hidden;border: 1px solid black;">
+    <div class="zot">
+      <div class="zot--cards">
+        <div class="zot--card">
+          <h3>Card Title 1</h3>
+          <p>Description here</p>
+        </div>
+        <div class="zot--card">
+          <h3>Card Title 2</h3>
+          <p>Description here</p>
+        </div>
+        <div class="zot--card">
+          <h3>Card Title 3</h3>
+          <p>Description here</p>
+        </div>
+        <div class="zot--card">
+          <h3>Card Title 4</h3>
+          <p>Description here</p>
+        </div>
+        <div class="zot--card">
+          <h3>Card Title 5</h3>
+          <p>Description here</p>
+        </div>
+        <div class="zot--card">
+          <h3>Card Title 6</h3>
+          <p>Description here</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <script src="https://s.hcurvecdn.com/gsap/3.12.2/gsap.min.js"></script>
+ 
+</body>
+</html>

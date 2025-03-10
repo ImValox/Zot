@@ -347,7 +347,7 @@ body {
 }
 
 /* Style pour les écrans de jeu */
-.toz-header {
+.zot-header {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -391,7 +391,7 @@ body {
     margin-bottom: 5px;
 }
 
-.toz-count {
+.zot-count {
     font-size: 14px;
     color: var(--primary-color);
 }

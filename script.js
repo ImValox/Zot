@@ -81,21 +81,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const jamaisQuestions = [
-        { question: "été à une soirée à thème", toz: 1 },
-        { question: "voyagé hors de France", toz: 2 },
-        { question: "fait un tatouage", toz: 3 },
+        { question: "été à une soirée à thème", zot: 1 },
+        { question: "voyagé hors de France", zot: 2 },
+        { question: "fait un tatouage", zot: 3 },
     ];
     
     const actionQuestions = [
-        { question: "Imite un animal de ton choix pendant 30 secondes", toz: 1 },
-        { question: "Prends une photo embarrassante et montre-la au groupe", toz: 2 },
-        { question: "Fais 10 pompes", toz: 3 },
+        { question: "Imite un animal de ton choix pendant 30 secondes", zot: 1 },
+        { question: "Prends une photo embarrassante et montre-la au groupe", zot: 2 },
+        { question: "Fais 10 pompes", zot: 3 },
     ];
     
     const veriteQuestions = [
-        { question: "Quelle est la chose la plus embarrassante que tu aies faite en public?", toz: 1 },
-        { question: "Quel est ton plus grand regret?", toz: 2 },
-        { question: "As-tu déjà menti à quelqu'un dans cette pièce?", toz: 3 },
+        { question: "Quelle est la chose la plus embarrassante que tu aies faite en public?", zot: 1 },
+        { question: "Quel est ton plus grand regret?", zot: 2 },
+        { question: "As-tu déjà menti à quelqu'un dans cette pièce?", zot: 3 },
     ];
     
     let currentPlayerIndex = 0;
@@ -171,11 +171,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (prefix === 'jn') {
             document.getElementById('jn-question').textContent = question.question;
-            document.getElementById('jn-toz-count').textContent = `${question.toz} toz`;
+            document.getElementById('jn-zot-count').textContent = `${question.zot} zot`;
         } else if (prefix === 'av') {
             document.getElementById('av-question').textContent = question.question;
             document.getElementById('av-question').style.display = 'block';
-            document.getElementById('av-toz-count').textContent = `${question.toz} toz`;
+            document.getElementById('av-zot-count').textContent = `${question.zot} zot`;
         }
     }
     
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.getElementById('av-refused').addEventListener('click', function() {
-        alert(`Boire ${document.getElementById('av-toz-count').textContent}`);
+        alert(`Boire ${document.getElementById('av-zot-count').textContent}`);
     });
     
     document.getElementById('av-done').addEventListener('click', function() {
