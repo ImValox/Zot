@@ -2,6 +2,7 @@
     --primary-color: #ff5b8d;
     --secondary-color: #ffffff;
     --dark-color: #0b0d19;
+    --darky-color: #1a1d2a;
     --light-color: #f7f7f7;
 }
 
@@ -468,3 +469,85 @@ body {
 .av-choice-btn:active {
     transform: translateY(0);
 }
+
+
+/* Style pour l'écran de fin de jeu */
+
+.zot {
+    width: 300px;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+
+  .loaded.zot {
+    opacity: 1;
+  }
+
+  .zot--cards {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .zot--card {
+    width: 250px;
+    height: 350px;
+    background: var(--darky-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    cursor: grab;
+    overflow: hidden;
+    transform: scale(1);
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+
+  .moving.zot--card {
+    cursor: grabbing;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  }
+
+  .zot--card:nth-child(odd) {
+    background-color: var(--darky-color);
+  }
+
+  .zot--card:nth-child(even) {
+    background-color: var(--darky-color);
+  }
+
+  .zot--card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  .zot--card h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .zot--card p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #777;
+    font-size: 14px;
+  }
